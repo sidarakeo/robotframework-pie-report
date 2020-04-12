@@ -1,0 +1,52 @@
+
+                <html>
+                <head>
+                <!-- UIkit CSS -->
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.4.0/dist/css/uikit.min.css" />
+
+                <!-- UIkit JS -->
+                <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.0/dist/js/uikit.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.0/dist/js/uikit-icons.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+                
+                <style>
+
+                .red{
+                    background:red
+                }
+
+                .green{
+                    background:green
+                }
+                
+                </style>
+                
+                </head>
+                
+                <body>
+                
+                <nav class="uk-navbar-container" uk-navbar>
+        <div class="uk-navbar-left">
+            <a class="uk-navbar-item uk-logo"  >LOGO</a>
+            <ul class="uk-navbar-nav">
+                <li class="uk-active"><a href="#">HOME</a></li>
+                
+            </ul>
+
+        </div>
+    </nav>
+                <div class="uk-container uk-container-xsmall">
+                <h1>Robot Report</h1>
+                <canvas id="myChart"></canvas>
+                <table class="uk-table uk-table-hover uk-table-divider uk-pagination">
+                <tr>
+                <th>Suite Name</th>
+                <th>  Test Case</th>
+                <th>Status</th>
+                </tr>
+                <tr> <td>Test1</td><td>Verify Login </td><td><span class='uk-badge green'>PASS</span> </td></tr><tr> <td>Test1</td><td>Verify homepage </td><td><span class='uk-badge red'>FAIL</span> </td></tr><tr> <td>Test2</td><td>final test log out </td><td><span class='uk-badge green'>PASS</span> </td></tr><tr> <td>Test2</td><td>check seasion </td><td><span class='uk-badge green'>PASS</span> </td></tr><script>var ctx = document.getElementById('myChart').getContext('2d');var myChart = new Chart(ctx, {type: 'pie',data: {labels: ['Pass', 'Fail'],datasets: [{backgroundColor: ['#2ecc71','#e74c3c' ],data: [3, 1]}]}});</script>
+                </table>
+                <canvas id="myChart"></canvas>
+                </div>
+                </body>
+                </html>
