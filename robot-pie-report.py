@@ -1,6 +1,12 @@
 __author__ = 'KEO_Sidara'
-__Version__ = '0.1.1'
-import xmltodict, json ,datetime
+__Version__ = '1.0'
+import subprocess
+try:
+        __import__("xmltodict")
+except ImportError:    
+    subprocess.check_call(["python", '-m', 'pip', 'install', 'xmltodict']) 
+    import xmltodict    
+import json ,datetime
 
 class RobotReport:
  
