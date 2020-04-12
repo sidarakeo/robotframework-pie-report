@@ -12,6 +12,6 @@ python  robot-pie-report.py
 ```
 ![alt 
 text](https://github.com/sidarakeo/robotframework-pie-report/blob/master/screenshot.jpg?raw=true)
-## Made in Cambodia 🇰🇭
+## Made in Cambodia
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
