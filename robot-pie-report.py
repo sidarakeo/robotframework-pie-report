@@ -31,11 +31,18 @@ class RobotReport:
                 <head>
                 <!-- UIkit CSS -->
                 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.4.0/dist/css/uikit.min.css" />
-
+                <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.uikit.min.css" />
+                    
                 <!-- UIkit JS -->
                 <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.0/dist/js/uikit.min.js"></script>
                 <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.0/dist/js/uikit-icons.min.js"></script>
                 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+                
+                
+               
+                 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+                  <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+                   <script src=" https://cdn.datatables.net/1.10.20/js/dataTables.uikit.min.js"></script>
                 
                 <style>
 
@@ -55,7 +62,7 @@ class RobotReport:
                 
                 <nav class="uk-navbar-container" uk-navbar>
         <div class="uk-navbar-left">
-            <a class="uk-navbar-item uk-logo">LOGO</a>
+            <a class="uk-navbar-item uk-logo"><img src="https://www.ababank.com/typo3conf/ext/boxmodel/Resources/Private/Templates/ABA/images/aba-web-top-logo.png" width="284" height="307" style="width: auto; height: 80px;" alt="ABA Bank" title="ABA Bank"></a>
             <ul class="uk-navbar-nav">
                 <li class="uk-active"><a href="#">HOME</a></li>
                 
@@ -66,20 +73,26 @@ class RobotReport:
                 <div class="uk-container uk-container-xsmall">
                 <h1>Robot Report</h1>
                 <canvas id="myChart"></canvas>
-                <table class="uk-table uk-table-hover uk-table-divider">
+                <table id="dbt" class="uk-table uk-table-hover uk-table-divider">
+                <thead>
                 <tr>
                 <th>Suite Name</th>
                 <th>  Test Case</th>
                 <th>Status</th>
+
                 </tr>
+                </thead>
+                <tbody>
                 {0}
+                </tbody>
                 </table>
                 <canvas id="myChart"></canvas>
                 </div>
                 </body>
                 </html>"""
     suitename = suit["robot"]["suite"]["@name"]
-    script = "var ctx = document.getElementById('myChart').getContext('2d');var myChart = new Chart(ctx, {{type: 'pie',data: {{labels: ['Pass', 'Fail'],datasets: [{{backgroundColor: ['#2ecc71','#e74c3c' ],data: [{0}, {1}]}}]}}}});".format(passTest,failTest)
+    script = "var ctx = document.getElementById('myChart').getContext('2d');var myChart = new Chart(ctx, {{type: 'pie',data: {{labels: ['Pass', 'Fail'],datasets: [{{backgroundColor: ['#2ecc71','#e74c3c' ],data: [{0}, {1}]}}]}}}});$(document).ready(function() {{ $('#dbt').DataTable(); }} );".format(passTest,failTest)
+    
     insert = []
     try:
         for i in range (len(test["robot"]["suite"]["suite"])):     
