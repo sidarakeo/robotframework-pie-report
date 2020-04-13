@@ -11,7 +11,7 @@ Just follow this command
 python  robot-pie-report.py
 ```
 ![alt 
-text](https://github.com/sidarakeo/robotframework-pie-report/blob/master/screenshot.jpg?raw=true)
+text](https://github.com/sidarakeo/robotframework-pie-report/blob/master/Screenshot2.png?raw=true?raw=true)
 ## Made in Cambodia
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
