@@ -104,8 +104,14 @@ class RobotReport:
         Html_file.write(message.format(''.join(insert)))
         Html_file.close()
     except:	
-        for i in test["robot"]["suite"]["test"]:    
-            insert.append("<tr> <td>{3}</td><td>{0} </td><td><span class='uk-badge {2}'>{1}</span> </td></tr>".format(i["@name"], i["status"]["@status"],passTest,suitename))
+        for i in test["robot"]["suite"]["test"]:   
+            statusTest= i["status"]["@status"]
+            print passTest
+            if statusTest=="FAIL":
+                    badge= "red"
+            else:
+                    badge= "green" 
+            insert.append("<tr> <td>{3}</td><td>{0} </td><td><span class='uk-badge {2}'>{1}</span> </td></tr>".format(i["@name"], i["status"]["@status"],badge,suitename))
         insert.append("<script>{}</script>".format(script))
         Html_file= open("pie_report_{}.html".format(reg_format_date),"w")
         Html_file.write(message.format(''.join(insert)))
