@@ -2,11 +2,10 @@ __author__ = 'KEO_Sidara'
 __Version__ = '1.0'
 import subprocess
 try:
-        __import__("xmltodict")
+    __import__("xmltodict")
 except ImportError:    
-    subprocess.check_call(["python", '-m', 'pip', 'install', 'xmltodict']) 
-    import xmltodict    
-import json ,datetime,sys
+    subprocess.check_call(['pip', 'install', 'xmltodict'])     
+import json ,datetime,sys,xmltodict
 
 class RobotReport:
  
@@ -24,7 +23,8 @@ class RobotReport:
         d_date = datetime.datetime.now()
         reg_format_date = d_date.strftime("%Y_%m_%d_%I_%M")
         print(reg_format_date)
-    except:
+    except Exception as e:
+       print (e)
        sys.exit(0)
         
     message = """
