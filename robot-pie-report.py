@@ -24,8 +24,8 @@ class RobotReport:
         d_date = datetime.datetime.now()
         reg_format_date = d_date.strftime("%Y_%m_%d_%I_%M")
         print(reg_format_date)
-    except Exception as e:
-       return print(e)
+    except:
+       return print("Error Occured")
         
     message = """
                 <html>
