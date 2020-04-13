@@ -22,7 +22,6 @@ class RobotReport:
 
         d_date = datetime.datetime.now()
         reg_format_date = d_date.strftime("%Y_%m_%d_%I_%M")
-        print(reg_format_date)
     except Exception as e:
        print (e)
        sys.exit(0)
@@ -56,7 +55,7 @@ class RobotReport:
                 
                 <nav class="uk-navbar-container" uk-navbar>
         <div class="uk-navbar-left">
-            <a class="uk-navbar-item uk-logo"  >LOGO</a>
+            <a class="uk-navbar-item uk-logo"><img src="https://www.ababank.com/typo3conf/ext/boxmodel/Resources/Private/Templates/ABA/images/aba-web-top-logo.png" width="284" height="307" style="width: auto; height: 80px;" alt="ABA Bank" title="ABA Bank"></a>
             <ul class="uk-navbar-nav">
                 <li class="uk-active"><a href="#">HOME</a></li>
                 
@@ -88,10 +87,7 @@ class RobotReport:
             for k in range (len(j)):
                 caseName= j[k]["@name"]
                 statusTest= j[k]["status"]["@status"]
-                print (statusTest)
                 s= test["robot"]["suite"]["suite"][i]["@name"] 
-                print (s)
-            
                 if statusTest=="FAIL":
                     badge= "red"
                 else:
@@ -103,10 +99,10 @@ class RobotReport:
         Html_file= open("pie_report_{}.html".format(reg_format_date),"w")
         Html_file.write(message.format(''.join(insert)))
         Html_file.close()
+        print ("Success Generate Report")
     except:	
         for i in test["robot"]["suite"]["test"]:   
             statusTest= i["status"]["@status"]
-            print passTest
             if statusTest=="FAIL":
                     badge= "red"
             else:
@@ -116,6 +112,7 @@ class RobotReport:
         Html_file= open("pie_report_{}.html".format(reg_format_date),"w")
         Html_file.write(message.format(''.join(insert)))
         Html_file.close()
+        print ("Success Generate Report")
 
 load = RobotReport()
 load.generateReport()
