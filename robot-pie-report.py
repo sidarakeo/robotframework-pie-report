@@ -6,7 +6,7 @@ try:
 except ImportError:    
     subprocess.check_call(["python", '-m', 'pip', 'install', 'xmltodict']) 
     import xmltodict    
-import json ,datetime
+import json ,datetime,sys
 
 class RobotReport:
  
@@ -25,7 +25,7 @@ class RobotReport:
         reg_format_date = d_date.strftime("%Y_%m_%d_%I_%M")
         print(reg_format_date)
     except:
-       return print("Error Occured")
+       sys.exit(0)
         
     message = """
                 <html>
