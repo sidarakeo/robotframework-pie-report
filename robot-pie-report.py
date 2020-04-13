@@ -55,7 +55,7 @@ class RobotReport:
                 
                 <nav class="uk-navbar-container" uk-navbar>
         <div class="uk-navbar-left">
-            <a class="uk-navbar-item uk-logo"><img src="https://www.ababank.com/typo3conf/ext/boxmodel/Resources/Private/Templates/ABA/images/aba-web-top-logo.png" width="284" height="307" style="width: auto; height: 80px;" alt="ABA Bank" title="ABA Bank"></a>
+            <a class="uk-navbar-item uk-logo">LOGO</a>
             <ul class="uk-navbar-nav">
                 <li class="uk-active"><a href="#">HOME</a></li>
                 
