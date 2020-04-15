@@ -1,0 +1,99 @@
+
+                <html>
+                <head>
+                <!-- UIkit CSS -->
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.4.0/dist/css/uikit.min.css" />
+                <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.uikit.min.css" />
+                    
+                <!-- UIkit JS -->
+                <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.0/dist/js/uikit.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.0/dist/js/uikit-icons.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+                
+                
+               
+                 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+                  <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+                   <script src=" https://cdn.datatables.net/1.10.20/js/dataTables.uikit.min.js"></script>
+                
+                <style>
+
+                .red{
+                    background:red
+                }
+
+                .green{
+                    background:green
+                }
+                
+                </style>
+                
+                </head>
+                
+                <body>
+              
+                <nav class="uk-navbar-container" uk-navbar>
+        <div class="uk-navbar-left">
+            <a class="uk-navbar-item uk-logo">LOGO</a>
+            <ul class="uk-navbar-nav">
+                <li class="uk-active"><a href="#">HOME</a></li>
+                
+            </ul>
+
+        </div>
+    </nav>
+                
+
+
+
+
+
+
+              <div class="uk-container uk-container-xlarge uk-card uk-card-default uk-card-body">
+
+                <div class="uk-text-center" uk-grid>
+    
+                 <div class="uk-width-1-2">
+        
+        
+        <div class="uk-card uk-card-default uk-card-body">   <canvas id="myChart"></canvas> </div>  
+    </div>
+    <div class="uk-width-1-2">
+        <div class="uk-card uk-card-default uk-card-body">  <canvas id="myLine"></canvas>   </div></div>
+    </div>
+
+
+
+                <h1>Robot Report</h1>
+                
+
+                            <div class="uk-flex">
+
+    
+</div>
+            </br>
+
+                <table id="dbt" class="uk-table uk-table-hover uk-table-divider">
+                <thead>
+                <tr>
+                <th>Suite Name</th>
+                <th>  Test Case</th>
+                 <th>Message</th>
+                <th>Status</th>
+
+                <th > Duration </th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr> <td>Test1</td><td>Verify Login </td> <td >  </td> <td><span class='uk-badge green'>PASS</span> </td>  <td> 5 </td>  </tr><tr> <td>Test1</td><td>Verify homepage </td> <td > <p class='uk-alert-danger'>No keyword with name 'logxxx' found.</p> </td> <td><span class='uk-badge red'>FAIL</span> </td>  <td> 0 </td>  </tr><tr> <td>Test2</td><td>final test log out </td> <td >  </td> <td><span class='uk-badge green'>PASS</span> </td>  <td> 0 </td>  </tr><tr> <td>Test2</td><td>check seasion </td> <td >  </td> <td><span class='uk-badge green'>PASS</span> </td>  <td> 0 </td>  </tr><script>var ctx = document.getElementById('myChart').getContext('2d');var myChart = new Chart(ctx, {type: 'pie',data: {labels: ['Pass', 'Fail'],datasets: [{backgroundColor: ['#2ecc71','#e74c3c' ],data: [3, 1]}]}});$(document).ready(function() { $('#dbt').DataTable(); } );var canvas = document.getElementById('myLine'); var data = { labels: [ 'Verify Login','Verify homepage','final test log out','check seasion' ], datasets: [ { label: 'Performance Test', fill: false, lineTension: 0.1, backgroundColor: 'rgba(75,192,192,0.4)', borderColor: 'rgba(75,192,192,1)', borderCapStyle: 'butt', borderDash: [], borderDashOffset: 0.0, borderJoinStyle: 'miter', pointBorderColor: 'rgba(75,192,192,1)', pointBackgroundColor: '#fff', pointBorderWidth: 1, pointHoverRadius: 5, pointHoverBackgroundColor: 'rgba(75,192,192,1)', pointHoverBorderColor: 'rgba(220,220,220,1)', pointHoverBorderWidth: 2, pointRadius: 5, pointHitRadius: 10, data: ['5','0','0','0'], } ] }; function adddata(){ myLineChart.data.datasets[0].data[7] = 60; myLineChart.data.labels[7] = 'Newly Added'; myLineChart.update(); } var option =  { showLines: true,  scales: { xAxes: [{ ticks: { display: false } }] } }; var myLineChart = Chart.Line(canvas,{ data:data, options:option }); </script>
+                </tbody>
+                </table>
+                <canvas id="myChart"></canvas>
+                </div>
+
+                 <center> Github Repo <a href="https://github.com/sidarakeo/robotframework-pie-report">github</a> </center>
+
+                </div>
+                </body>
+                </html>
