@@ -32,7 +32,7 @@ class RobotReport:
  
  def  generateReport(self):
     try:
-        with open('output.xml') as fd:
+        with open('output1.xml') as fd:
             doc = xmltodict.parse(fd.read())
             test =json.dumps(doc)
             suit =json.loads(test)
@@ -64,6 +64,11 @@ class RobotReport:
                  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
                   <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
                    <script src=" https://cdn.datatables.net/1.10.20/js/dataTables.uikit.min.js"></script>
+
+                   <!-- import CSS -->
+                <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+            <!-- import JavaScript -->
+            <script src="https://unpkg.com/element-ui/lib/index.js"></script>
                 
                 <style>
 
@@ -83,7 +88,7 @@ class RobotReport:
               
                 <nav class="uk-navbar-container" uk-navbar>
         <div class="uk-navbar-left">
-            <a class="uk-navbar-item uk-logo">LOGO</a>
+            <a class="uk-navbar-item uk-logo"> ABA Bank </a>
             <ul class="uk-navbar-nav">
                 <li class="uk-active"><a href="#">HOME</a></li>
                 
@@ -167,13 +172,13 @@ class RobotReport:
                 totalDuration.append(testDuration)
                 caseNameDynamic.append(caseName)
                 if statusTest=="FAIL":
-                    badge= "red"
+                    badge= "danger"
                     msgErr= "<p class='uk-alert-danger'>"+j[k]["status"]["#text"]+"</p>"
                 else:
-                    badge= "green"
+                    badge= "success"
                     msgErr= ""
 
-                insert.append("<tr> <td>{3}</td><td>{0} </td> <td > {5} </td> <td><span class='uk-badge {2}'>{1}</span> </td>  <td> {4} </td>  </tr>".format(caseName,statusTest,badge,s,testDuration,msgErr))
+                insert.append("<tr> <td>{3}</td><td>{0} </td> <td > {5} </td> <td><span class='el-tag el-tag--{2} el-tag--dark'>{1}</span> </td>  <td> {4} </td>  </tr>".format(caseName,statusTest,badge,s,testDuration,msgErr))
         
 
         caseNameDynamic=','.join("'{0}'".format(x) for x in caseNameDynamic)
@@ -199,13 +204,13 @@ class RobotReport:
             testDuration= self.calculateTestTime(i["status"]["@starttime"],i["status"]["@endtime"])
             totalDuration.append(testDuration)
             if statusTest=="FAIL":
-                    badge= "red"
+                    badge= "danger"
                     msgErr= "<p class='uk-alert-danger'>"+i["status"]["#text"]+"</p>"
             else:
-                    badge= "green" 
+                    badge= "success" 
                     msgErr=""
             caseNameDynamic.append(i["@name"])
-            insert.append("<tr> <td>{3}</td><td>{0} </td> <td > {5} </td> <td><span class='uk-badge {2}'>{1}</span> </td>  <td> {4} </td>  </tr>".format(i["@name"], i["status"]["@status"],badge,suitename,testDuration,msgErr))
+            insert.append("<tr> <td>{3}</td><td>{0} </td> <td > {5} </td> <td><span class='el-tag el-tag--{2} el-tag--dark'>{1}</span> </td>  <td> {4} </td>  </tr>".format(i["@name"], i["status"]["@status"],badge,suitename,testDuration,msgErr))
         
         caseNameDynamic=','.join("'{0}'".format(x) for x in caseNameDynamic)
         totalDuration=','.join("'{0}'".format(x) for x in  totalDuration)
