@@ -48,109 +48,77 @@ class RobotReport:
        sys.exit(0)
         
     message = """
-                <html>
-                <head>
-                <!-- UIkit CSS -->
-                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.4.0/dist/css/uikit.min.css" />
-                <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.uikit.min.css" />
-                    
-                <!-- UIkit JS -->
-                <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.0/dist/js/uikit.min.js"></script>
-                <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.0/dist/js/uikit-icons.min.js"></script>
-                <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-                
-                
-               
-                 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-                  <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-                   <script src=" https://cdn.datatables.net/1.10.20/js/dataTables.uikit.min.js"></script>
-
-                   <!-- import CSS -->
-                <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
-            <!-- import JavaScript -->
-            <script src="https://unpkg.com/element-ui/lib/index.js"></script>
-                
-                <style>
-
-                .red{{
-                    background:red
-                }}
-
-                .green{{
-                    background:green
-                }}
-                
-                </style>
-                
-                </head>
-                
-                <body>
-              
-                <nav class="uk-navbar-container" uk-navbar>
-        <div class="uk-navbar-left">
+   <html>
+   <head>
+      <!-- UIkit CSS -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.4.0/dist/css/uikit.min.css" />
+      <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.uikit.min.css" />
+      <!-- UIkit JS -->
+      <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.0/dist/js/uikit.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.0/dist/js/uikit-icons.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+      <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+      <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+      <script src=" https://cdn.datatables.net/1.10.20/js/dataTables.uikit.min.js"></script>
+      <!-- import CSS -->
+      <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+      <!-- import JavaScript -->
+      <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+      <style>
+         .red{{
+         background:red
+         }}
+         .green{{
+         background:green
+         }}
+      </style>
+   </head>
+   <body>
+      <nav class="uk-navbar-container" uk-navbar>
+         <div class="uk-navbar-left">
             <a class="uk-navbar-item uk-logo"> ABA Bank </a>
             <ul class="uk-navbar-nav">
-                <li class="uk-active"><a href="#">HOME</a></li>
-                
+               <li class="uk-active"><a href="#">HOME</a></li>
             </ul>
-
-        </div>
-    </nav>
-                
-
-
-
-
-
-
-              <div class="uk-container uk-container-xlarge uk-card uk-card-default uk-card-body">
-
-                <div class="uk-text-center" uk-grid>
-    
-                 <div class="uk-width-1-2">
-        
-        
-        <div class="uk-card uk-card-default uk-card-body">   <canvas id="myChart"></canvas> </div>  
-    </div>
-    <div class="uk-width-1-2">
-        <div class="uk-card uk-card-default uk-card-body">  <canvas id="myLine"></canvas>   </div></div>
-    </div>
-
-
-
-                <h1>Robot Report</h1>
-                
-
-                            <div class="uk-flex">
-
-    
-</div>
-            </br>
-
-                <table id="dbt" class="uk-table uk-table-hover uk-table-divider">
-                <thead>
-                <tr>
-                <th>Suite Name</th>
-                <th>  Test Case</th>
-                 <th>Message</th>
-                <th>Status</th>
-
-                <th > Duration </th>
-
-                </tr>
-                </thead>
-                <tbody>
-                {0}
-                </tbody>
-                </table>
-                <canvas id="myChart"></canvas>
-                </div>
-
-                 <center> Github Repo <a href="https://github.com/sidarakeo/robotframework-pie-report">github</a> </center>
-
-                </div>
-                </body>
-                </html>"""
+         </div>
+      </nav>
+      <div class="uk-container uk-container-xlarge uk-card uk-card-default uk-card-body">
+         <div class="uk-text-center" uk-grid>
+            <div class="uk-width-1-2">
+               <div class="uk-card uk-card-default uk-card-body">
+                  <canvas id="myChart"></canvas>
+               </div>
+            </div>
+            <div class="uk-width-1-2">
+               <div class="uk-card uk-card-default uk-card-body">
+                  <canvas id="myLine"></canvas>
+               </div>
+            </div>
+         </div>
+         <h1>Robot Report</h1>
+         <div class="uk-flex">
+         </div>
+         </br>
+         <table id="dbt" class="uk-table uk-table-hover uk-table-divider">
+            <thead>
+               <tr>
+                  <th>Suite Name</th>
+                  <th>  Test Case</th>
+                  <th>Message</th>
+                  <th>Status</th>
+                  <th > Duration </th>
+               </tr>
+            </thead>
+            <tbody>
+               {0}
+            </tbody>
+         </table>
+         <canvas id="myChart"></canvas>
+      </div>
+      <center> Github Repo <a href="https://github.com/sidarakeo/robotframework-pie-report">github</a> </center>
+      </div>
+   </body>
+</html>"""
     suitename = suit["robot"]["suite"]["@name"]
     caseNameDynamic = []
     totalDuration = []
