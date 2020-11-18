@@ -32,7 +32,7 @@ class RobotReport:
  
  def  generateReport(self):
     try:
-        with open('output1.xml') as fd:
+        with open('output.xml') as fd:
             doc = xmltodict.parse(fd.read())
             test =json.dumps(doc)
             suit =json.loads(test)
